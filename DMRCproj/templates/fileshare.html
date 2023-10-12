@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Share{% endblock title %}
+{% block body %}
+
+<div class="text-center">
+    <h1>Share File here</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">Share File</button>
+
+    </form>
+</div>
+<style>
+    body {
+        background-image: url(/static/sharepage.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    h1 {
+        color: rgb(244, 240, 33)
+    }
+</style>
+
+
+{% endblock body %}

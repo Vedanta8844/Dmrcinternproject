@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Inbox{% endblock title %}
+{% block body %}
+<div class="container my-3">
+    <h1>Inbox</h1>
+    <ul>
+        {% for share in user.files_received.all %}
+        <li>
+            <strong>Sender: {{ share.sender.username }}</strong><br>
+            <strong>Shared At: {{ share.shared_at }}</strong><br>
+            File: <a href="{{ share.file.url }}">{{ share.file.name }}</a>
+        </li>
+        {% empty %}
+        <li>No shared files in your inbox.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="text-center"><a class="btn btn-primary" href="{% url 'profile' %}" role="button">Back to Profile</a>
+    <style></div>
+
+    body {
+            {
+            % comment %
+        }
+
+        background-image: url(/static/inbox.jpg);
+
+            {
+            % endcomment %
+        }
+
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+</style>
+
+{% endblock body %}

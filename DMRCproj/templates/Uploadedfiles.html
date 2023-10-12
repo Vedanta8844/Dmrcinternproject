@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}DownloadFile{% endblock title %}
+{% block body %}<h1>You can view the links to your uploaded files here!</h1>
+
+<h2>File List</h2>
+<ol>
+    {% for file in files %}
+    
+    <li>
+        <a href="{{ file.file.url }}" download="{{ file.file.name }}">{{ file.file.name }}</a>
+    </li>
+    
+    {% endfor %}
+</ol>
+
+
+<style>
+    body {
+        background-image: url("/static/dmrcupload6.jpg"); 
+       background-size: cover;
+       height: 100vh;
+       background-position: left;
+   }
+
+   h1 {
+       margin-top: 5%;
+       margin-bottom: 0%;
+       font-size: 500%;
+       text-align: center;
+       font-family: 'Ubuntu', sans-serif;
+       color: rgb(246, 250, 250);
+   }
+   h2{
+    color:white
+   }
+</style>
+{% endblock body %}

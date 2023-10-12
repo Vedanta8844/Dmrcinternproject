@@ -1,0 +1,10 @@
+<h1>Update Profile</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-success">Update</button>
+    <a href="{% url 'password_change' %}">Change Password</a>
+
+
+
+</form>

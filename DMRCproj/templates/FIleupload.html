@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block title %}FileUpload{% endblock title %}
+{% block body %}<h1>You can upload files here and we will send it to the database!!</h1>
+<h1>DMRC FILE SHARING</h1>
+
+<h3>A service for hosting your files</h3>
+<div style="width: 20%; height: 10%; border-top: 2.5px solid rgba(255,255,255,0.4); margin: 0 auto;"></div>
+<div class="fancybox">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }} 
+        <button type="submit" class="btn btn-primary">Upload File</button> 
+
+        <!-- <input type="file" name="document">
+        <button type="submit">Upload file</button> -->
+        {% comment %} <div>
+            <label for="formFileLg" class="form-label">File upload</label>
+            <input class="form-control form-control-lg" id="formFileLg" type="file" name="document">
+
+        </div>
+       
+    </form> {% endcomment %}
+</div>
+{% if url %}
+<div class="file-download-link">
+    <p>Uploaded file: <a href="{{ url }}" target="_blank">{{ url }}</a></p>
+</div>
+{% endif %}
+
+<style>
+    body {
+         background-image: url("/static/dmrcupload6.jpg"); 
+        background-size: cover;
+        height: 100vh;
+        background-position: left;
+    }
+
+    h1 {
+        margin-top: 5%;
+        margin-bottom: 0%;
+        font-size: 500%;
+        text-align: center;
+        font-family: 'Ubuntu', sans-serif;
+        color: rgb(246, 250, 250);
+    }
+
+    h3 {
+        font-size: 200%;
+        text-align: center;
+        font-family: 'Ubuntu', sans-serif;
+        color: white;
+    }
+
+    .fancybox {
+        margin: 0 auto;
+        position: relative;
+        border: transparent;
+        text-align: center;
+        width: 35%;
+        background-color: rgba(0, 0, 0, 0.25);
+        padding: 20px 20px;
+    }
+
+
+    button {
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        text-align: center;
+        border-radius: 20px;
+        padding: 5px 15px;
+        border: hidden;
+        margin-top: 5%;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: black;
+    }
+
+    p {
+        color: white;
+        font-size: large;
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+    }
+</style>{% endblock body %}
